@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class StringCalculator {
     private static final String DETAULF_DELIMITER = ",|:";
+    private static final int NUMBER_ZERO = 0;
     private String inputString = "";
 
     public int add(String input) {
@@ -12,7 +13,7 @@ public class StringCalculator {
         inputString = input;
 
         if (checkEmptyOrNull()) {
-            return 0;
+            return NUMBER_ZERO;
         }
 
         String customDelimiter = findCustomDelimiter();

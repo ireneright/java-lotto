@@ -17,7 +17,8 @@ public class StringCalculator {
         String[] textNumbers;
         if (customDelimiter == null) {
             textNumbers = inputString.split(DETAULF_DELIMITER);
-        } else {
+        }
+        if (customDelimiter != null) {
             textNumbers = inputString.split(customDelimiter);
         }
 

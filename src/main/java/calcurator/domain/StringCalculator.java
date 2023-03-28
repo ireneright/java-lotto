@@ -6,17 +6,13 @@ import java.util.regex.Pattern;
 public class StringCalculator {
     private static final String DETAULF_DELIMITER = ",|:";
     private static final int NUMBER_ZERO = 0;
-    private String inputString = "";
+    public int add(String inputString) {
 
-    public int add(String input) {
-
-        inputString = input;
-
-        if (checkEmptyOrNull()) {
+        if (checkEmptyOrNull(inputString)) {
             return NUMBER_ZERO;
         }
 
-        String customDelimiter = findCustomDelimiter();
+        String customDelimiter = findCustomDelimiter(inputString);
 
         String[] textNumbers;
         if (customDelimiter == null) {
@@ -28,7 +24,7 @@ public class StringCalculator {
         return getSum(textNumbers);
     }
 
-    private boolean checkEmptyOrNull() {
+    private boolean checkEmptyOrNull(String inputString) {
         return (inputString == null || inputString.isEmpty());
     }
 
@@ -38,7 +34,7 @@ public class StringCalculator {
         }
     }
 
-    private String findCustomDelimiter() {
+    private String findCustomDelimiter(String inputString) {
         String customDelimiter = null;
         Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(inputString);
         if (matcher.find()) {
